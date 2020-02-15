@@ -302,14 +302,5 @@ def main_func():
     else:
         logging.info(f'Nothing to parse. We have actual data')
 
-
-CONFIG = configparser.ConfigParser()
-CONFIG.read('config.ini', encoding='utf-8')
-engine = create_engine('{0}{1}:{2}@{3}/{4}'.format('postgresql+psycopg2://', CONFIG.get('pgDB', 'user'),
-                                                   CONFIG.get('pgDB', 'password'),
-                                                   CONFIG.get('pgDB', 'host'),
-                                                   CONFIG.get('pgDB', 'dbname')))
-find_sheets_excel(Path('E:\Python\excel_parser\PlanFiles\Прил 1-31 к Прот № 1 от 07.01.20.xlsx'),
-                  'Прил 1-31 к Прот № 1 от 07.01.20.xlsx', datetime(2020, 1, 7), engine)
-# main_func()
+main_func()
 
